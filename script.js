@@ -83,7 +83,7 @@ async function fetchRecipers(query){ //API ekata call karanwa (async unction eka
         showResultMessage(query);
     }else{
         renderRecipe(currentRecipes);
-        alert(currentRecipes);
+       // alert(currentRecipes);
     }
 
 
@@ -96,7 +96,7 @@ async function fetchRecipers(query){ //API ekata call karanwa (async unction eka
 function showLoadingState(){
     recipeContainer.innerHTML = `
     <div class="col-12 text-center">
-    <div class="spinner-border text-success" role="status">
+    <div class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading....</span>
     </div>
     <P class="mt-2">Search for recipes...</P>
@@ -135,11 +135,11 @@ function renderRecipe(recipes){
                     <span class="badge bg-light text-dark health-label">${label}</span>
                     `).join('')}
             </div>
-            <button class="btn btn-outline-success btn-sm view-recipe" data-uri="${recipe.uri}">
+            <button class="btn btn-outline-primary btn-sm view-recipe" data-uri="${recipe.uri}">
                     <i class="bi bi-eye"></i> View Recepe....
             </button>
 
-           ${isFavourite ? `<button class="btn btn-success btn-sm ms-2 favorite-btn" data-uri="${recipe.uri}">
+           ${isFavourite ? `<button class="btn btn-primary btn-sm ms-2 favorite-btn" data-uri="${recipe.uri}">
                     <i class="bi bi-heart-fill"></i> saved
            </button> `:
            `<button class="btn btn-online-secondary btn-sm ms-2 favorite-btn" data-uri="${recipe.uri}">
@@ -220,7 +220,7 @@ function createRecipeModalContent(recipe){
                 <ul class="list-group ingredient-list mb-3">
                     ${ingredientList}
                 </ul>
-                <a href="" target="blank" class="btn btn-success">
+                <a href="" target="blank" class="btn btn-primary">
                     <i class="bi bi-link"></i> Full recipe On ${recipe.source}
                 </a>
             </div>
@@ -278,7 +278,7 @@ function updateFavouritesURL(uri, isNowFvourites){
         `<i class="bi bi-heart-fill"></i> saved`:
         `<i class="bi bi-heart"></i> save`;
         favoriteBtn.classList.toggle('btn-outline-secondary', !isNowFvourites);
-        favoriteBtn.classList.toggle('btn-success', isNowFvourites);
+        favoriteBtn.classList.toggle('btn-primary', isNowFvourites);
 
     }
 }
@@ -303,7 +303,7 @@ function renderFavourites(){
         <h5>${fav.label}</h5>
         <p class="mb-1 text-muted">${fav.source}</p>
         <div class="d-flex">
-        <a href="${fav.url}" target="_blank" class="btn btn-sm btn-outline-success me-2">
+        <a href="${fav.url}" target="_blank" class="btn btn-sm btn-outline-primary me-2">
         <i class="bi bi-link"></i></a>
         <button class="btn btn-sm btn-outline-danger remove-favorite"
          data-uri="${fav.uri}"><i class="bi bi-trash"></i></button>
